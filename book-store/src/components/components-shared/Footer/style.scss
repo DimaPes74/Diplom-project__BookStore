@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 2px solid $light-gray;
+    span {
+        line-height: 75px;
+        font-size: $_16;
+        color: $gray;
+    }
+}

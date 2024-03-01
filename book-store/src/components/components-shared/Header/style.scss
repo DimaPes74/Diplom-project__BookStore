@@ -1,0 +1,59 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid $light-gray;
+    padding: 5px;
+
+
+    &__left {
+        
+        span {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: $_28;
+            line-height: 50px;
+        }
+    }
+
+    &__center {
+        border: 2px solid $light-gray;
+        margin: 0 15% 20px 15%;
+        width: 100%;
+        padding: 7px;
+        display: flex;
+        justify-content: space-between;
+        input {
+            display: inline-block;
+            width: 90%;
+            height: 80%;
+            border: none;
+            }
+        }
+        button svg {
+            height: 24px;
+            width: 24px;
+        }
+        
+
+    &__right {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        li button {
+            margin: 0 2px;
+            padding: 0 14px;
+            svg {
+                height: 24px;
+                width: 24px;
+            }
+        }
+    }
+}
+
+button {
+    background: none;
+    border: none;
+    
+}
+
+
