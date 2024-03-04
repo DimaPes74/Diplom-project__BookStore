@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import Title from '../../components/components-shared/Title/index';
-
+import Subscribe from "../../components/components-shared/Subscribe";
 
 function CardsBooks () {
 
     const [ books, setBooks ] = useState([]);
+
+    const navigate = useNavigate();
+
+    let { search } = useParams();
 
     useEffect(() => {
         const apiUrl = 'https://api.itbook.store/1.0/new';
@@ -13,7 +18,7 @@ function CardsBooks () {
             const allPersons = resp.data;
             setBooks(allPersons.books)
         });
-    }, []);
+    }, [search]);
 
     return (
         <div className="cards">
@@ -24,11 +29,10 @@ function CardsBooks () {
                     books.map((book) => {
                         return (
                             <div className="cards__book-wrap">
-                                <div><img src={book.image} alt="#"></img></div>
+                                <div><img onClick={(e) => e.target ? search = book.isbn13 && navigate(`/aloneBook/${book.isbn13}`): "no"} src={book.image} alt="#"></img></div>
                                 <h3>{book.title}</h3>
-                                <span>{book.subtitle}</span>
+                                <p>{book.subtitle || 'Subtitle'}</p>
                                 <span>{book.price}</span>
-                                <button onClick={''}>+</button>
                             </div>
                         )
                     })
@@ -36,6 +40,7 @@ function CardsBooks () {
                     ''
                 }
             </div>
+            <Subscribe />
         </div>
     )
 }

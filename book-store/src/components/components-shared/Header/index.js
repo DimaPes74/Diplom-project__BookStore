@@ -1,11 +1,12 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { SvgSelector } from "../icons/SvgSelectors"
 
 
 
 function Header () {
 
+    let { search } = useParams();
 
     const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ function Header () {
 
     const handleClickSearch = (e) => {
         if (e.target) {
-            navigate('/search-books')
+            navigate(`books/${search = value}`)
         }
         
     }

@@ -1,0 +1,32 @@
+.subscribe {
+    padding: 25px;
+    background-color: $blue;
+    h2 {
+        text-transform: uppercase;
+    }
+
+    div {
+        margin-bottom: 25px;
+        span {
+            color: rgba(32, 31, 31, 0.3);
+        }
+    }
+    div {
+        display: flex;
+        justify-content: space-between;
+        input {
+            line-height: 40px;
+            border: none;
+            flex-grow: 1;
+            padding: 0 15px;
+        }
+        button {
+            background-color: $dark;
+            color: $white;
+            text-transform: uppercase;
+            line-height: 40px;
+            width: 150px;
+        }
+    }
+        
+}

@@ -1,0 +1,11 @@
+.alone-card {
+    &__title {
+        h1 {
+            text-transform: uppercase;
+        }
+    }
+    &__show-info {
+        display: flex;
+        justify-content: space-between;
+    }
+}
