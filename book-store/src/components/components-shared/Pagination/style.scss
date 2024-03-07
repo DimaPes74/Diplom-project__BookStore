@@ -1,0 +1,20 @@
+.pagination {
+    &__wrapper {
+        padding: 40px 0 40px 0;
+        border-top: 2px solid $light-gray;
+        display: grid;
+        grid-template-columns: 45% 3% 3% 3% 45%;
+        :last-child {
+            text-align: right;
+        }
+    }
+    button {
+        font-size: $_24;
+        text-align: center;
+        &:hover {
+            background-color: $blue;
+            border-radius: 5px;
+        }
+    }
+}
+

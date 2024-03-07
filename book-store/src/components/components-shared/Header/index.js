@@ -1,12 +1,14 @@
 import { useState } from "react"
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setInputValue } from "../../../slice/booksSlice";
 import { SvgSelector } from "../icons/SvgSelectors"
 
 
 
 function Header () {
 
-    let { search } = useParams();
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
@@ -14,7 +16,8 @@ function Header () {
 
     const handleClickSearch = (e) => {
         if (e.target) {
-            navigate(`books/${search = value}`)
+            navigate("/search")
+            dispatch(setInputValue(value))
         }
         
     }
@@ -33,9 +36,9 @@ function Header () {
                 <button onClick={handleClickSearch}><SvgSelector id="Search"/></button>
             </div>
             <ul className="header__right">
-                <li><button><SvgSelector id="Vector"/></button></li>
-                <li><button><SvgSelector id="Group"/></button></li>
-                <li><button><SvgSelector id="User"/></button></li>
+                <li><button onClick={(e) => e.target ? navigate('/favorits') : ''} ><SvgSelector id="Vector"/></button></li>
+                <li><button onClick={(e) => e.target ? navigate('/basket') : ''} ><SvgSelector id="Group"/></button></li>
+                <li><button onClick={(e) => e.target ? navigate('/signin') : ''}><SvgSelector id="User"/></button></li>
             </ul>
         </div>
     )

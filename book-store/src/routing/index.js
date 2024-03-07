@@ -3,6 +3,10 @@ import App from '../App';
 import CardsBooks from '../pages/Cards-books/index';
 import SearchBooks from '../pages/Search-books';
 import AloneBook from '../pages/Alone-book';
+import Favorits from '../pages/Favorits';
+import Basket from '../pages/Basket';
+import SignIn from '../pages/Account/SignIn';
+
 
 const Router = createBrowserRouter([
     {
@@ -20,17 +24,26 @@ const Router = createBrowserRouter([
                 element: <CardsBooks />,
             },
             {
-                path: "books/:search",
+                path: "search",
                 element: <SearchBooks />,
             },
             {
-                path: "aloneBook",
-                element: <AloneBook />
+                path: "search/:oneBook",
+                element: <AloneBook />,
             },
             {
-                path: "aloneBook/:oneBook",
-                element: <AloneBook />,
+                path: "favorits",
+                element: <Favorits />,
+            },
+            {
+                path: "basket",
+                element: <Basket />,
+            },
+            {
+                path: "signin",
+                element: <SignIn />,
             }
+            
         ]
     },
 ])

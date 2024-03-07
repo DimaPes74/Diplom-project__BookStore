@@ -1,0 +1,27 @@
+.signin {
+    // height: 61vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__wrapper {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid $light-gray;
+        padding: 20px;
+        div {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 2px solid $light-gray;
+            span {
+                text-transform: uppercase;
+                font-size: $_18;
+            }
+        }
+        label {
+            input {
+                display: block;
+            }
+        }
+    }
+}

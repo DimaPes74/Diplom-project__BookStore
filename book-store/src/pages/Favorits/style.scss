@@ -1,0 +1,39 @@
+.favorits{
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid $light-gray;
+    }
+    &__image {
+        background-color: $blue;
+        margin-bottom: 30px;
+        img {
+            height: 200px;
+            width: 150px;
+        }
+    }
+    &__info {
+        width: 60%;
+        align-self: flex-start;
+        li {
+            color: $gray;
+            font-size: $_18;
+            line-height: 35px;
+            &:first-child {
+                color: $dark;
+                font-size: $_24;
+                font-weight: 600;
+                line-height: 50px;
+            }
+            &:last-child {
+                color: $dark;
+                font-size: $_24;
+                font-weight: 600;
+                padding-top: 30px;
+            }
+        }
+    }
+}
+    
