@@ -3,8 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     books: [],
     inputValue: '',
-    favorits: [],
+    favourites: [],
     basket: [],
+    pageValue: 1,
     status: 'idle',
     error: null,
 };
@@ -23,12 +24,12 @@ export const booksSlice = createSlice({
             state.inputValue = action.payload;
         },
 
-        setFavorits: (state, action) => {
-            state.favorits.push(action.payload);
+        setFavourites: (state, action) => {
+            state.favourites.push(action.payload);
         },
 
-        delFavorits: (state, action) => {
-            state.favorits.filter((book, index) => book.isbn13 === action.payload ? state.favorits.splice(index, 1) : '');
+        delFavourites: (state, action) => {
+            state.favourites.filter((book, index) => book.isbn13 === action.payload ? state.favourites.splice(index, 1) : '');
         },
 
         setBasket: (state, action) => {
@@ -37,12 +38,31 @@ export const booksSlice = createSlice({
 
         delBasket: (state, action) => {
             state.basket.filter((book, index) => book.isbn13 === action.payload ? state.basket.splice(index, 1) : '');
-        }
+        },
+
+        nextPage: (state, action) => {
+            state.pageValue += action.payload;
+        },
+
+        prewPage: (state, action) => {
+            state.pageValue -= action.payload;
+        },
+
+        thisPage: (state, action) => {
+            state.pageValue = action.payload;        
+        },
+
     },
 
 });
 
-export const { setSearchBook, setInputValue, setFavorits, delFavorits, setBasket, delBasket } = booksSlice.actions;
+export const {
+    setSearchBook, setInputValue, 
+    setFavourites, delFavourites, 
+    setBasket, delBasket, 
+    nextPage, prewPage, thisPage,
+    
+} = booksSlice.actions;
 
 export const selectAllBooks = (state) => state.books.books;
 

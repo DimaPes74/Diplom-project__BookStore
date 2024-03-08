@@ -1,4 +1,9 @@
 .your-cart {
+    button {
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
     &__wrapper {
         display: flex;
         justify-content: space-between;
@@ -11,10 +16,11 @@
         margin-bottom: 30px;
         img {
             height: 200px;
-            width: 150px;
+            width: 170px;
         }
     }
     &__info {
+        width: 40%;
         li {
             color: $gray;
             font-size: $_18;
@@ -29,9 +35,17 @@
                 color: $dark;
                 padding-top: 30px;
                 button {
-                    width: 50px;
-                    height: 15px;
+                    width: 30px;
+                    height: 30px;
                     font-size: $_18;
+                    margin: 0 25px 0 25px;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    &:hover {
+                        border: 2px solid $light-gray;
+                        border-radius: 10px;
+                    }
                 }
             }
         }

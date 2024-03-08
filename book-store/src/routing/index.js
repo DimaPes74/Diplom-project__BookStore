@@ -40,10 +40,41 @@ const Router = createBrowserRouter([
                 element: <Basket />,
             },
             {
-                path: "signin",
+                path: "autorization",
                 element: <SignIn />,
+                children: [
+                    {
+                        path: "signIn",
+                        element: 
+                        <div className="signin__bottom">
+                            <label for="email">
+                                Email
+                                <input placeholder="Your email" type="email" name="email" id="email"/>
+                            </label>
+                            <label for="password">
+                                Password
+                                <input placeholder="Your password" type="password" name="password" id="password"/>
+                            </label>
+                            <span>Forgot password?</span>
+                        </div>
+                    },
+                    {
+                        path: "signUp",
+                        element: 
+                        <div className="signin__bottom">
+                            <label for="email">
+                                Email
+                                <input placeholder="Your email" type="email" name="email" id="email"/>
+                            </label>
+                            <label for="password">
+                                Password
+                                <input placeholder="Your password" type="password" name="password" id="password"/>
+                            </label>
+                            <span>Forgot AAAA password?</span>
+                        </div>
+                    }
+                ]
             }
-            
         ]
     },
 ])

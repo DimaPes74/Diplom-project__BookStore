@@ -9,6 +9,11 @@ li {
         h1 {
             text-transform: uppercase;
         }
+        button {
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
     }
     &__show-info {
         display: flex;
@@ -36,6 +41,9 @@ li {
             right: 0;
             width: 35px;
             height: 35px;
+            &:hover {
+                transform: scale(1.05);
+            }
         }
 
         ul {
@@ -80,6 +88,13 @@ li {
                     background-color: $dark;
                     text-transform: uppercase;
                     margin-bottom: 35px;
+                    &:hover {
+                        background-color: $lite_dark;
+                        transform: scale(1.05);
+                    }
+                    &:active {
+                        box-shadow: 10px 5px 5px $lite_dark;
+                    }
                 }
                 .prewiew {
                     width: 100%;

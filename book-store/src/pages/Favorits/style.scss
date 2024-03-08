@@ -1,4 +1,9 @@
 .favorits{
+    button {
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
     &__wrapper {
         display: flex;
         justify-content: space-between;

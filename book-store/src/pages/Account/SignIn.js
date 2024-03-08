@@ -1,20 +1,14 @@
+import { Outlet, NavLink } from "react-router-dom"
+
 function SignIn () {
     return (
         <div className="signin">
             <div className="signin__wrapper">
-                <div>
-                    <span>sign in</span>
-                    <span>sign up</span>
+                <div className="signin__top">
+                    <NavLink to="/autorization/signIn" className={({isActive}) => isActive ? "activ-link" : ''}>sign in</NavLink>
+                    <NavLink to="/autorization/signUp" className={({isActive}) => isActive ? "activ-link" : ''}>sign up</NavLink>
                 </div>
-                <label for="email">
-                    Email
-                    <input type="email" name="email" id="email"/>
-                </label>
-                <label for="password">
-                    Password
-                    <input type="password" name="password" id="password"/>
-                </label>
-                <span>Forgot password?</span>
+                <Outlet />
                 <button>sign in</button>
             </div>
         </div>

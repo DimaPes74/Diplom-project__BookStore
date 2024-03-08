@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { selectAllBooks, setSearchBook } from "../../slice/booksSlice";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import Title from "../../components/components-shared/Title";
 import Pagination from "../../components/components-shared/Pagination";
@@ -9,13 +8,8 @@ import Pagination from "../../components/components-shared/Pagination";
 
 function SearchBooks () {
 
-    const dispatch = useDispatch();
-
-    const books = useSelector(selectAllBooks);
-
-    // const bookStatus = useSelector ( (state) => state.books.status );
-
     const valueInput = useSelector((state) => state.books.inputValue);
+    const valuePage = useSelector((state) => state.books.pageValue);
 
     const navigate = useNavigate();
 
@@ -24,15 +18,12 @@ function SearchBooks () {
     let { oneBook } = useParams();
 
     useEffect(() => {
-        const apiUrl = `https://api.itbook.store/1.0/search/${valueInput}`;
+        const apiUrl = `https://api.itbook.store/1.0/search/${valueInput}/${valuePage}`;
         axios.get(apiUrl).then((resp) => {
             const allPersons = resp.data;
             setSearching(allPersons.books);
-            // dispatch(setSearchBook(allPersons.books))
         });
-    }, [valueInput]);
-
-    console.log(searching);
+    }, [valueInput, valuePage]);
 
 
     return (
@@ -55,7 +46,7 @@ function SearchBooks () {
                     navigate('/books')
                 }
             </div>
-            <Pagination/>
+            <Pagination />
         </div>
     )
 }

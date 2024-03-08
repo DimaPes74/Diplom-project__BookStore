@@ -26,7 +26,7 @@ function Basket () {
                             <ul className="your-cart__info">
                                 <li>{book.title}</li>
                                 <li>{`by ${book.authors}, ${book.year}`}</li>
-                                <li><button>+</button>{countBook}<button>-</button></li>
+                                <li><button>-</button>{countBook}<button onClick={(e) => e.target ? countBook =+ 1 : ''}>+</button></li>
                             </ul>
                             <div className="your-cart__price"><span>{book.price}</span></div>
                             <button onClick={(e) => e.target ? dispatch(delBasket(book.isbn13)) : ''}><SvgSelector id="Cancel"/></button>
@@ -39,7 +39,6 @@ function Basket () {
             <div className="your-cart__total">
                 <div><span>total:</span><span>{`$ ${basketState.reduce((a, b) => Number(a) + parseFloat(b.price.substring(1)), 0)}`}</span></div>
                 <button>check out</button>
-                
             </div>
         </div>
 

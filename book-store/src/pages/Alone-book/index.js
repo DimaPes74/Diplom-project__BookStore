@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setFavorits, setBasket } from "../../slice/booksSlice";
+import { useDispatch} from "react-redux";
+import { setFavourites, setBasket } from "../../slice/booksSlice";
 import axios from 'axios';
 import Title from "../../components/components-shared/Title";
 import { SvgSelector } from "../../components/components-shared/icons/SvgSelectors";
@@ -34,7 +34,7 @@ function AloneBook () {
             <div className="alone-card__show-info">
                 <div>
                     <img src={aloneBook.image} alt="#"></img>
-                    <button onClick={(e) => e.target ? dispatch(setFavorits(aloneBook)) : ''} className="heart-dislike"></button>
+                    <button onClick={(e) => e.target ? dispatch(setFavourites(aloneBook)) : ''} className="heart-dislike"></button>
                 </div>
                 <ul>
                     <li><span className="one-price">{aloneBook.price}</span><span>{aloneBook.rating}</span></li>
@@ -59,11 +59,7 @@ function AloneBook () {
                 <li>Authors</li>
                 <li>Reviews</li>
             </ul>
-            <div className="alone-card__description">
-                <p id="desc">{aloneBook.desc}</p>
-                <p>{aloneBook.authors}</p>
-                <p>Reviews</p>
-            </div>
+            <p>{aloneBook.desc}</p>
             <div className="alone-card__links">
                 links
             </div>
