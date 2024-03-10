@@ -1,12 +1,25 @@
 .cards {
     &__books-wraper {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 33% 33% 33%;
+        box-sizing: border-box;
+        @media (max-width: 768px) {
+            grid-template-columns: 50% 50%
+        }
+        @media (max-width: 520px) {
+            grid-template-columns: 100%
+        }
     }
-    
     &__book-wrap {
         padding: 10px;
-        div {
+        display: flex;
+        flex-direction: column;
+        .cards__book-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 265px;
             background-color: $blue;
             &:hover {
                 background-color: $orange;
@@ -15,19 +28,28 @@
                 background-color: $purple;
             }
             img {
-                display: block;
-                margin: auto;
-                height: 100%;
+                width: 60%;
+                height: 80%;
+                object-fit: cover;
             }
         } 
-        h3 {
-            text-transform: uppercase;
+        .cards__book-desc {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 50%;
+
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                color: rgba(32, 31, 31, 0.3);
+                flex-grow: 1;
+            }
+            span {
+                font-weight: 500;
+            }
         }
-        p {
-            color: rgba(32, 31, 31, 0.3);
-        }
-        span {
-            font-weight: 500;
-        }
+        
     }
 }

@@ -4,6 +4,12 @@
         border-top: 2px solid $light-gray;
         display: grid;
         grid-template-columns: 45% 3% 3% 3% 45%;
+        :nth-child(2),
+        :nth-child(3),
+        :nth-child(4) {
+            margin: 0 4px;
+        }
+
         :last-child {
             text-align: right;
         }
@@ -14,6 +20,15 @@
         &:hover {
             background-color: $blue;
             border-radius: 5px;
+        }
+    }
+    @media (max-width: 600px) {
+        &__wrapper {
+            padding: 25px 0 25px 0;
+            grid-template-columns: 40% 6% 6% 6% 40%;
+        }
+        button {
+            font-size: $_18;
         }
     }
 }

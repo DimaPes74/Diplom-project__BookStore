@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { setFavourites, setBasket } from "../../slice/booksSlice";
 import axios from 'axios';
 import Title from "../../components/components-shared/Title";
 import { SvgSelector } from "../../components/components-shared/icons/SvgSelectors";
+import Rating from "../../components/components-shared/Rating";
 
 
 
@@ -15,6 +16,8 @@ function AloneBook () {
     let { oneBook } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const stateFavourites = useSelector((state) => state.books.favourites);
+    const stateBasket = useSelector((state) => state.books.basket);
 
     useEffect(() => {
         const apiUrl = `https://api.itbook.store/1.0/books/${oneBook}`;
@@ -23,6 +26,20 @@ function AloneBook () {
             setAloneBook(allPersons);
         });
     }, []);
+
+    const hendalClickAddLikes = (e) => {
+        e.target && stateFavourites.find((book) => book.isbn13 === aloneBook.isbn13) ?
+        alert('Такая книга уже существует в Favourites!')
+        :
+        dispatch(setFavourites(aloneBook))
+    };
+
+    const hendalClickAddBasket = (e) => {
+        e.target && stateBasket.find((book) => book.isbn13 === aloneBook.isbn13) ?
+        alert('Такая книга уже существует в Basket!')
+        :
+        dispatch(setBasket(aloneBook))
+    };
     
 
     return (
@@ -32,12 +49,12 @@ function AloneBook () {
                 <Title title={aloneBook.title}/>
             </div>
             <div className="alone-card__show-info">
-                <div>
+                <div className="img__wrap">
                     <img src={aloneBook.image} alt="#"></img>
-                    <button onClick={(e) => e.target ? dispatch(setFavourites(aloneBook)) : ''} className="heart-dislike"></button>
+                    <button onClick={hendalClickAddLikes} className="heart-dislike"><SvgSelector id="HeartDislike"/></button>
                 </div>
                 <ul>
-                    <li><span className="one-price">{aloneBook.price}</span><span>{aloneBook.rating}</span></li>
+                    <li><span className="one-price">{aloneBook.price}</span><Rating rating={+aloneBook.rating}/></li>
                     <li><span className="this-book_info">Authors</span><span className="this-book_value">{aloneBook.authors}</span></li>
                     <li><span className="this-book_info">Publisher</span><span className="this-book_value">{aloneBook.publisher}</span></li>
                     <li><span className="this-book_info">Language</span><span className="this-book_value">{aloneBook.language}</span></li>
@@ -50,7 +67,7 @@ function AloneBook () {
                             <option value="value4">Pages: {aloneBook.pages}</option>
                         </select>
                     </li>
-                    <li><button onClick={(e) => e.target ? dispatch(setBasket(aloneBook)) : ''}>add to cart</button></li>
+                    <li><button onClick={hendalClickAddBasket}>add to cart</button></li>
                     <li><span className="prewiew">Preview book</span></li>
                 </ul>
             </div>

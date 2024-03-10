@@ -19,10 +19,11 @@ li {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        div {
+        .img__wrap {
             background-color: $blue;
+        }
+        div {
             width: 40%;
-            padding: 40px;
             position: relative;
             img {
                 display: block;
@@ -33,9 +34,6 @@ li {
         }
         .heart-dislike {
             background-color: $dark;
-            background-image: url(../../components/components-shared/icons/heart1.svg);
-            background-repeat: no-repeat;
-            background-position: center;
             position: absolute;
             top: 0;
             right: 0;
@@ -54,6 +52,8 @@ li {
                 display: flex;
                 justify-content: space-between;
                 &:first-child {
+                    display: flex;
+                    align-items: center;
                     margin-bottom: 45px;
                 }
                 .one-price {
@@ -93,7 +93,7 @@ li {
                         transform: scale(1.05);
                     }
                     &:active {
-                        box-shadow: 10px 5px 5px $lite_dark;
+                        box-shadow: 5px 5px 5px $lite_dark;
                     }
                 }
                 .prewiew {

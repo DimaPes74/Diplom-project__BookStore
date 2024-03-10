@@ -8,6 +8,16 @@ $_18: 1.125rem;
 $_16: 1rem;
 $_12: 0.75rem;
 
+@media (max-width: 1000px) {
+    $_56: 3rem;
+    $_40: 2rem;
+    $_28: 1.25rem;
+    $_24: 1.1rem;
+    $_18: 1rem;
+    $_16: 0.75rem;
+    $_12: 0.50rem;
+}
+
 // system-colors
 
 $dark: #313037;

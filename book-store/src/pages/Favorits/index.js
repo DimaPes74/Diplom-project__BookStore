@@ -15,7 +15,7 @@ function Favorits () {
     return (
         <div className="favorits">
             <button onClick={(e) => e.target ? navigate('/search') : "error"}><SvgSelector id="ArrowLeft"/></button>
-            <Title title="favorits"/>
+            <Title title="favourites"/>
             {
                 favouritesState?.length ?
                 favouritesState.map((book, index) => {

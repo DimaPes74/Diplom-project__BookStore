@@ -31,10 +31,12 @@ function CardsBooks () {
                     books.map(( book ) => {
                         return (
                             <div className="cards__book-wrap">
-                                <div><img onClick={(e) => e.target ? oneBook = book.isbn13 && navigate(`/search/${book.isbn13}`): "no"} src={book.image} alt="#"></img></div>
-                                <h3>{book.title}</h3>
-                                <p>{book.subtitle || 'Subtitle'}</p>
-                                <span>{book.price}</span>
+                                <div className="cards__book-img"><img onClick={(e) => e.target ? oneBook = book.isbn13 && navigate(`/search/${book.isbn13}`): "no"} src={book.image} alt="#"></img></div>
+                                <div className="cards__book-desc">
+                                    <h3>{book.title}</h3>
+                                    <p>{book.subtitle || 'Subtitle'}</p>
+                                    <span>{book.price}</span>
+                                </div>
                             </div>
                         )
                     })

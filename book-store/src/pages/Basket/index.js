@@ -16,7 +16,7 @@ function Basket () {
     return (
         <div className="your-cart">
             <button onClick={(e) => e.target ? navigate('/search') : "error"}><SvgSelector id="ArrowLeft"/></button>
-            <Title title="yuor cart"/>
+            <Title title="your cart"/>
             {
                 basketState?.length ?
                 basketState.map((book) => {

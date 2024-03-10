@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setInputValue } from "../../../slice/booksSlice";
 import { SvgSelector } from "../icons/SvgSelectors"
@@ -16,14 +16,24 @@ function Header () {
     let { oneBook } = useParams();
 
     let [ value, setValue ] = useState('');
+    const [ valueBurger, setValueBurger ] = useState('');
     const [ popap, setPopap] = useState('');
+    const [ isOpen, setOpen ] = useState();
 
     const handleClickSearch = (e) => {
         if (e.target) {
             navigate("/search")
             dispatch(setInputValue(value))
+            setValue('')
         }
-        
+    }
+    const handleClickSearchBrgr = (e) => {
+        if (e.target) {
+            navigate("/search")
+            dispatch(setInputValue(valueBurger))
+            setValueBurger('')
+            setOpen("")
+        }
     }
 
     useEffect(() => {
@@ -31,7 +41,7 @@ function Header () {
         axios.get(apiUrl).then((resp) => {
             const allPersons = resp.data;
             setPopap(allPersons.books);
-        });
+        });  
     }, [ value ]);
 
     const stateBasket = useSelector((state) => state.books.basket);
@@ -41,7 +51,7 @@ function Header () {
         <>
             <div className="header">
                 <div className="header__left">
-                    <span>bookstore</span>
+                    <Link to="/books">bookstore</Link>
                 </div>
                 <div className="header__center">
                     <input
@@ -55,6 +65,7 @@ function Header () {
                     <li><button onClick={(e) => e.target ? navigate('/favorits') : ''} >{stateFavourites?.length ? <SvgSelector id="Vector-activ"/> : <SvgSelector id="Vector"/>}</button></li>
                     <li><button onClick={(e) => e.target ? navigate('/basket') : ''} >{stateBasket?.length ? <SvgSelector id="Shop-group"/> : <SvgSelector id="Group"/>}</button></li>
                     <li><button onClick={(e) => e.target ? navigate('/autorization') : ''}><SvgSelector id="User"/></button></li>
+                    <li><button onClick={() => setOpen(!isOpen)}><SvgSelector id="Burger"/></button></li>
                 </ul>
             </div>
             {
@@ -65,7 +76,7 @@ function Header () {
                     popap.map((book, index) => {
                         if (index <= 3) {
                             return (
-                                <li onClick={(e) => e.target ? oneBook = book.isbn13 && navigate(`/search/${book.isbn13}`) : "no"}>
+                                <li onClick={(e) => e.target ? oneBook = book.isbn13 && navigate(`/search/${book.isbn13}`) | setValue('') : "no"}>
                                     <div><img src={book.image} alt="#"></img></div>
                                     <span>{book.title}</span>
                                 </li>
@@ -78,6 +89,30 @@ function Header () {
                 <button onClick={handleClickSearch}>all results</button>
             </ul>
             }
+            <nav className={`header__nav ${isOpen ? "activ" : ""}`}>
+                <ul className="header__nav-list">
+                    <li className="header__nav-items">
+                        <button onClick={() => setOpen("")}><SvgSelector id="Cancel"/></button>
+                    </li>
+                    <li className="header__nav-items">
+                        <input
+                            placeholder="Search"
+                            value={valueBurger}
+                            onChange={e => setValueBurger(e.target.value)}
+                        />
+                        <button onClick={handleClickSearchBrgr}><SvgSelector id="Search"/></button>
+                    </li>
+                    <li className="header__nav-items">
+                        <Link onClick={() => setOpen("")} to="favorits">favourites</Link>
+                    </li>
+                    <li className="header__nav-items">
+                        <Link onClick={() => setOpen("")} to="basket">cart</Link>
+                    </li>
+                    <li className="header__nav-items">
+                        <button>log out</button>
+                    </li>
+                </ul>
+            </nav>
         </>
         
     )

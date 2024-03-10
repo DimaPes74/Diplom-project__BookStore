@@ -1,7 +1,10 @@
 .your-cart {
     button {
         &:hover {
-            transform: scale(1.5);
+            transform: scale(1.02);
+        }
+        &:active {
+            box-shadow: 5px 5px 5px $lite_dark;
         }
     }
     &__wrapper {

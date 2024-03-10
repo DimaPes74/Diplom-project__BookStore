@@ -25,7 +25,7 @@ export const booksSlice = createSlice({
         },
 
         setFavourites: (state, action) => {
-            state.favourites.push(action.payload);
+            state.favourites.push(action.payload); 
         },
 
         delFavourites: (state, action) => {
@@ -51,7 +51,6 @@ export const booksSlice = createSlice({
         thisPage: (state, action) => {
             state.pageValue = action.payload;        
         },
-
     },
 
 });
