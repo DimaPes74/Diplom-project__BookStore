@@ -101,12 +101,15 @@ button {
     background-color: $white;
     border: 2px solid $light-gray;
     z-index: 100;
-    width: 28%;
+    width: 30%;
     height: 355px;
     overflow: hidden;
     box-sizing: border-box;
     margin: auto;
     padding: 0;
+    @media (max-width: 900px) {
+        display: none;
+    }
     li {
         display: flex;
         flex-direction: row;
@@ -160,6 +163,18 @@ button {
         background-color: $white;
         transition: transform 0.3s linear;
         z-index: 101;
+        @media (max-width: 560px) {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            background-color: $white;
+            transition: transform 0.3s linear;
+            z-index: 101;
+        }
     }
 
     .header__nav.activ {
@@ -173,6 +188,9 @@ button {
         align-items: center;
         height: 100%;
         padding: 0 30px;
+        @media (max-width: 560px) {
+            padding: 0 10px;
+        }
     }
 
     .header__nav-items {
@@ -182,6 +200,19 @@ button {
             border-bottom: 2px solid $light-gray;
             width: 100%;
             margin-bottom: 40px;
+            div {
+                display: none;
+                a {
+                    color: $dark;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-size: $_18;
+                    font-weight: 500;
+                }
+            }
+            .header__nav-items__btn {
+                display: none;
+            }
             button {
                 border: 1px solid $white;
                 &:hover {
@@ -193,6 +224,24 @@ button {
                 } 
             }
         }
+        @media (max-width: 560px) {
+            &:first-child {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+                div {
+                    display: block;
+                    flex-grow: 1;
+                    
+                }
+                .header__nav-items__btn {
+                    display: block;
+                }
+
+            }
+        }
         &:nth-child(2) {
             width: 100%;
             position: relative;
@@ -201,6 +250,11 @@ button {
                 line-height: 40px;
                 padding-left: 20px;
                 width: 90%;
+                @media (max-width: 560px) {
+                    line-height: 40px;
+                    padding-left: 10px;
+                    width: 95%;
+                }
             }
 
             button {

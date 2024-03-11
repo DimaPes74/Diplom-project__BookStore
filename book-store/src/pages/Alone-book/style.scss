@@ -19,12 +19,18 @@ li {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @media (max-width: 760px) {
+            flex-direction: column;
+        }
         .img__wrap {
             background-color: $blue;
-        }
-        div {
-            width: 40%;
+            width: 45%;
             position: relative;
+            align-self: flex-start;
+            margin-top: 20px;
+            @media (max-width: 760px) {
+                width: 100%;
+            }
             img {
                 display: block;
                 margin: auto;
@@ -45,16 +51,20 @@ li {
         }
 
         ul {
-            width: 40%;
+            width: 45%;
             border-top: 2px solid $light-gray;
-            padding: 40px 0 0 0;
+            padding: 20px 0 0 0;
+            align-self: flex-start;
+            @media (max-width: 760px) {
+                width: 100%;
+            }
             li {
                 display: flex;
                 justify-content: space-between;
                 &:first-child {
                     display: flex;
                     align-items: center;
-                    margin-bottom: 45px;
+                    margin-bottom: 30px;
                 }
                 .one-price {
                     font-size: $_28;
@@ -63,19 +73,19 @@ li {
                 .this-book_info {
                     color: $gray;
                     font-size: $_18;
-                    line-height: 35px;
+                    line-height: 30px;
                 }
                 .this-book_value {
                     font-size: $_18;
-                    line-height: 35px;
+                    line-height: 30px;
                     font-weight: 600;
                 }
                 .select {
                     font-size: $_18;
                     font-weight: 500;
-                    padding: 25px 0;
+                    padding: 20px 0;
                     border: none;
-                    margin-bottom: 35px;
+                    margin-bottom: 25px;
                     option {
                         font-size: $_18;
                         line-height: 24px;
@@ -103,9 +113,6 @@ li {
             }
         }
     }
-    &__description p {
-        display: none;
-    }
     .alone-books_popaps {
         display: flex;
         flex-direction: row;
@@ -120,6 +127,35 @@ li {
             &:hover {
                 color: $dark;
                 border-bottom: 2px solid $dark;
+            }
+        }
+    }
+    @media (max-width: 620px) {
+        .alone-books_popaps {
+            margin-bottom: 25px;
+            li {
+                width: 30%;
+                line-height: 60px;
+                text-align: center;
+                color: $gray;
+                &:hover {
+                    color: $dark;
+                    border-bottom: 2px solid $dark;
+                }
+            }
+        }
+    }
+    p {
+        margin-bottom: 40px;
+    }
+    .alone-card__links {
+        display: flex;
+        flex-direction: row;
+        li {
+            padding: 10px;
+            &:hover {
+                background-color: $light-gray;
+                border-radius: 10px;
             }
         }
     }

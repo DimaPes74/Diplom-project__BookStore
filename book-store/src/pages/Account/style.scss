@@ -8,6 +8,12 @@
         display: flex;
         flex-direction: column;
         border: 2px solid $light-gray;
+        @media (max-width: 760px) {
+            width: 60%;
+        }
+        @media (max-width: 560px) {
+            width: 85%;
+        }
         .signin__top {
             display: flex;
             justify-content: space-around;
@@ -18,6 +24,7 @@
                 text-align: center;
                 text-transform: uppercase;
                 font-size: $_18;
+                font-weight: 600;
                 padding: 10px 0;
                 color: $light-gray;
                 margin: 0;
@@ -40,8 +47,8 @@
             flex-direction: column;
         }
         label {
-            font-size: $_18;
-            font-weight: 600;
+            font-size: $_12;
+            font-weight: 500;
             input {
                 display: block;
                 margin: 5px 0 12px 0;
@@ -49,6 +56,18 @@
                 line-height: 32px;
                 color: $_18;
                 padding-left: 15px;
+                @media (max-width: 1024px) {
+                    width: 92%;
+                }
+                @media (max-width: 700px) {
+                    width: 92%;
+                }
+                @media (max-width: 560px) {
+                    width: 94%;
+                }
+                @media (max-width: 400px) {
+                    width: 90%;
+                }
             }
         }
         span {

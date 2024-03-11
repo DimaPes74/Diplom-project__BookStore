@@ -51,10 +51,13 @@ function AloneBook () {
             <div className="alone-card__show-info">
                 <div className="img__wrap">
                     <img src={aloneBook.image} alt="#"></img>
-                    <button onClick={hendalClickAddLikes} className="heart-dislike"><SvgSelector id="HeartDislike"/></button>
+                    <button 
+                        onClick={hendalClickAddLikes} className="heart-dislike">
+                        <SvgSelector id="HeartDislike"/>
+                    </button>
                 </div>
                 <ul>
-                    <li><span className="one-price">{aloneBook.price}</span><Rating rating={+aloneBook.rating}/></li>
+                    <li><span className="one-price">{aloneBook.price}</span><Rating rating={aloneBook.rating}/></li>
                     <li><span className="this-book_info">Authors</span><span className="this-book_value">{aloneBook.authors}</span></li>
                     <li><span className="this-book_info">Publisher</span><span className="this-book_value">{aloneBook.publisher}</span></li>
                     <li><span className="this-book_info">Language</span><span className="this-book_value">{aloneBook.language}</span></li>
@@ -78,7 +81,9 @@ function AloneBook () {
             </ul>
             <p>{aloneBook.desc}</p>
             <div className="alone-card__links">
-                links
+                <li><a href="https://www.facebook.com/?locale=ru_RU"><SvgSelector id="Facebook"/></a></li>
+                <li><a href="https://twitter.com/?lang=ru"><SvgSelector id="Twitter"/></a></li>
+                <li><a href="http://localhost:3000/books"><SvgSelector id="Dots"/></a></li>
             </div>
         </div>
     )

@@ -92,6 +92,13 @@ function Header () {
             <nav className={`header__nav ${isOpen ? "activ" : ""}`}>
                 <ul className="header__nav-list">
                     <li className="header__nav-items">
+                        <div className="header__nav-items__link">
+                            <Link onClick={() => setOpen("")} to="/books">bookstore</Link>
+                        </div>
+                        <button 
+                            onClick={(e) => e.target ? navigate('/basket') | setOpen("") : ''} className="header__nav-items__btn">
+                            {stateBasket?.length ? <SvgSelector id="Shop-group"/> : <SvgSelector id="Group"/>}
+                        </button>
                         <button onClick={() => setOpen("")}><SvgSelector id="Cancel"/></button>
                     </li>
                     <li className="header__nav-items">

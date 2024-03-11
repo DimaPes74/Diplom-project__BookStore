@@ -15,7 +15,7 @@ function Basket () {
 
     return (
         <div className="your-cart">
-            <button onClick={(e) => e.target ? navigate('/search') : "error"}><SvgSelector id="ArrowLeft"/></button>
+            <button className="basket-btn" onClick={(e) => e.target ? navigate('/search') : "error"}><SvgSelector id="ArrowLeft"/></button>
             <Title title="your cart"/>
             {
                 basketState?.length ?
@@ -28,8 +28,10 @@ function Basket () {
                                 <li>{`by ${book.authors}, ${book.year}`}</li>
                                 <li><button>-</button>{countBook}<button onClick={(e) => e.target ? countBook =+ 1 : ''}>+</button></li>
                             </ul>
-                            <div className="your-cart__price"><span>{book.price}</span></div>
-                            <button onClick={(e) => e.target ? dispatch(delBasket(book.isbn13)) : ''}><SvgSelector id="Cancel"/></button>
+                            <div className="your-cart__price">
+                                <div><span>{book.price}</span></div>
+                                <button onClick={(e) => e.target ? dispatch(delBasket(book.isbn13)) : ''}><SvgSelector id="Cancel"/></button>
+                            </div>
                         </div>
                     )
                 }) 

@@ -5,7 +5,9 @@ import SearchBooks from '../pages/Search-books';
 import AloneBook from '../pages/Alone-book';
 import Favorits from '../pages/Favorits';
 import Basket from '../pages/Basket';
-import SignIn from '../pages/Account/SignIn';
+import Autorization from '../pages/Account/Autorization';
+import Signin from '../pages/Account/Signin';
+import SignUp from '../pages/Account/SignUp';
 
 
 const Router = createBrowserRouter([
@@ -41,37 +43,20 @@ const Router = createBrowserRouter([
             },
             {
                 path: "autorization",
-                element: <SignIn />,
+                element: <Autorization />,
                 children: [
                     {
-                        path: "signIn",
-                        element: 
-                        <div className="signin__bottom">
-                            <label for="email">
-                                Email
-                                <input placeholder="Your email" type="email" name="email" id="email"/>
-                            </label>
-                            <label for="password">
-                                Password
-                                <input placeholder="Your password" type="password" name="password" id="password"/>
-                            </label>
-                            <span>Forgot password?</span>
-                        </div>
+                        index: 1,
+                        element: <Signin /> 
+                    },
+                    {
+                        path: 'signIn',
+                        element: <Signin />,
                     },
                     {
                         path: "signUp",
-                        element: 
-                        <div className="signin__bottom">
-                            <label for="email">
-                                Email
-                                <input placeholder="Your email" type="email" name="email" id="email"/>
-                            </label>
-                            <label for="password">
-                                Password
-                                <input placeholder="Your password" type="password" name="password" id="password"/>
-                            </label>
-                            <span>Forgot AAAA password?</span>
-                        </div>
+                        element: <SignUp />
+                        
                     }
                 ]
             }

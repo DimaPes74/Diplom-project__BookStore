@@ -22,6 +22,9 @@
             border-radius: 5px;
         }
     }
+    .activ-a {
+        background-color: $blue;
+    }
     @media (max-width: 600px) {
         &__wrapper {
             padding: 25px 0 25px 0;
@@ -29,6 +32,10 @@
         }
         button {
             font-size: $_18;
+            &:hover {
+                background-color: $blue;
+                border-radius: 5px;
+            }
         }
     }
 }
