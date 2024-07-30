@@ -26,7 +26,7 @@ function Basket () {
                             <ul className="your-cart__info">
                                 <li>{book.title}</li>
                                 <li>{`by ${book.authors}, ${book.year}`}</li>
-                                <li><button>-</button>{countBook}<button onClick={(e) => e.target ? countBook =+ 1 : ''}>+</button></li>
+                                <li><button>-</button>{countBook}<button onClick={''}>+</button></li>
                             </ul>
                             <div className="your-cart__price">
                                 <div><span>{book.price}</span></div>

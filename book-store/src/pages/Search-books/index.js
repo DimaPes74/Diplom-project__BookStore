@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setInputValue } from "../../slice/booksSlice"
+import { Pagination } from "antd";
+import { setInputValue, thisPage } from "../../slice/booksSlice"
 import axios from "axios";
 import Title from "../../components/components-shared/Title";
-import Pagination from "../../components/components-shared/Pagination";
+// import Pagination from "../../components/components-shared/Pagination";
 import { SvgSelector } from "../../components/components-shared/icons/SvgSelectors";
 
 
@@ -17,6 +18,7 @@ function SearchBooks () {
     const dispatch = useDispatch();
 
     const [ searching, setSearching ] = useState([]);
+    const [ total, setTotal ] = useState();
     const [ value, setValue ] = useState('');
 
     let { oneBook } = useParams();
@@ -26,6 +28,7 @@ function SearchBooks () {
         axios.get(apiUrl).then((resp) => {
             const allPersons = resp.data;
             setSearching(allPersons.books);
+            setTotal(allPersons.total);
         });
     }, [valueInput, valuePage]);
 
@@ -33,10 +36,16 @@ function SearchBooks () {
         if (e.target) {
             navigate("/search")
             dispatch(setInputValue(value))
-            setValue('')
         } 
+        setValue('')
+    }
+    const handalChange = (page) => {
+        dispatch(thisPage(page));
+        navigate("/search");
     }
 
+    const App = () => <Pagination onChange={handalChange} defaultCurrent={valuePage} total={total} />;
+    const ComponentDemo = App;
 
     return (
         <div className="search-books">
@@ -51,6 +60,7 @@ function SearchBooks () {
                 </div>
             </div>
             <Title title={` " ${valueInput} " ` + "search results"}/>
+            <span className="total">Всего найдено {total} результата.</span>
             <div className="search-books__wrapper">
                 {
                     searching?.length ?
@@ -70,7 +80,7 @@ function SearchBooks () {
                     navigate('/books')
                 }
             </div>
-            <Pagination />
+            <ComponentDemo />
         </div>
     )
 }

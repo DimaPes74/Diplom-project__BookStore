@@ -3,6 +3,7 @@
         display: grid;
         grid-template-columns: 33% 33% 33%;
         box-sizing: border-box;
+        margin-bottom: 50px;
         @media (max-width: 768px) {
             grid-template-columns: 50% 50%
         }

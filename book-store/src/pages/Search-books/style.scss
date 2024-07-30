@@ -27,6 +27,9 @@
     h1 {
         text-transform: uppercase;
     }
+    .total {
+        color: $gray;
+    }
     &__wrapper {
         display: grid;
         grid-template-columns: 33% 33% 33%;

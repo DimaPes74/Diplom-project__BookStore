@@ -24,16 +24,18 @@ function Header () {
         if (e.target) {
             navigate("/search")
             dispatch(setInputValue(value))
-            setValue('')
+
         }
+        setValue('');
     }
+
     const handleClickSearchBrgr = (e) => {
         if (e.target) {
             navigate("/search")
             dispatch(setInputValue(valueBurger))
-            setValueBurger('')
-            setOpen("")
         }
+        setValueBurger('');
+        setOpen("");
     }
 
     useEffect(() => {
@@ -64,7 +66,7 @@ function Header () {
                 <ul className="header__right">
                     <li><button onClick={(e) => e.target ? navigate('/favorits') : ''} >{stateFavourites?.length ? <SvgSelector id="Vector-activ"/> : <SvgSelector id="Vector"/>}</button></li>
                     <li><button onClick={(e) => e.target ? navigate('/basket') : ''} >{stateBasket?.length ? <SvgSelector id="Shop-group"/> : <SvgSelector id="Group"/>}</button></li>
-                    <li><button onClick={(e) => e.target ? navigate('/autorization') : ''}><SvgSelector id="User"/></button></li>
+                    <li><button onClick={(e) => e.target ? navigate('/autorization/signIn') : ''}><SvgSelector id="User"/></button></li>
                     <li><button onClick={() => setOpen(!isOpen)}><SvgSelector id="Burger"/></button></li>
                 </ul>
             </div>

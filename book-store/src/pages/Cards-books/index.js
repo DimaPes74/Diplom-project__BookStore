@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import Title from '../../components/components-shared/Title/index';
 import Subscribe from "../../components/components-shared/Subscribe";
-import Pagination from "../../components/components-shared/Pagination";
 
 
 function CardsBooks () {
@@ -44,7 +43,6 @@ function CardsBooks () {
                     ''
                 }
             </div>
-            <Pagination></Pagination>
             <Subscribe />
         </div>
     )

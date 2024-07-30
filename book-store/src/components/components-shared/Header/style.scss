@@ -54,7 +54,7 @@
     &__right {
         display: flex;
         flex-direction: row;
-        justify-content: end;
+        justify-content: flex-end;
         list-style: none;
         width: 20%;
         li {

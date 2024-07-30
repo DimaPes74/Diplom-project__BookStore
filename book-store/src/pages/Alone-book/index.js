@@ -12,6 +12,7 @@ import Rating from "../../components/components-shared/Rating";
 function AloneBook () {
 
     const [ aloneBook, setAloneBook ] = useState({});
+    const [ like, setLike ] = useState("HeartDislike");
 
     let { oneBook } = useParams();
     const navigate = useNavigate();
@@ -25,13 +26,14 @@ function AloneBook () {
             const allPersons = resp.data;
             setAloneBook(allPersons);
         });
-    }, []);
+    }, [ stateFavourites ]);
 
     const hendalClickAddLikes = (e) => {
         e.target && stateFavourites.find((book) => book.isbn13 === aloneBook.isbn13) ?
         alert('Такая книга уже существует в Favourites!')
         :
-        dispatch(setFavourites(aloneBook))
+        dispatch(setFavourites(aloneBook));
+        setLike("HeartLike");
     };
 
     const hendalClickAddBasket = (e) => {
@@ -53,7 +55,7 @@ function AloneBook () {
                     <img src={aloneBook.image} alt="#"></img>
                     <button 
                         onClick={hendalClickAddLikes} className="heart-dislike">
-                        <SvgSelector id="HeartDislike"/>
+                        <SvgSelector id={like}/>
                     </button>
                 </div>
                 <ul>
