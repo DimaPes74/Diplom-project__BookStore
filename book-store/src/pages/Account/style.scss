@@ -1,0 +1,87 @@
+.signin {
+    // height: 61vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__wrapper {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid $light-gray;
+        @media (max-width: 760px) {
+            width: 60%;
+        }
+        @media (max-width: 560px) {
+            width: 85%;
+        }
+        .signin__top {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 2px solid $light-gray;
+            margin-bottom: 30px;
+            a {
+                width: 100%;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: $_18;
+                font-weight: 600;
+                padding: 10px 0;
+                color: $light-gray;
+                margin: 0;
+                border: 2px solid $white;
+                text-decoration: none;
+                cursor: pointer;
+                &:hover {
+                    color: $dark;
+                    border-bottom: 2px solid $dark;
+                }
+            }
+            .activ-link {
+                color: $dark;
+                border-bottom: 2px solid $dark;
+            }
+        }
+        .signin__bottom {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: $_12;
+            font-weight: 500;
+            input {
+                display: block;
+                margin: 5px 0 12px 0;
+                width: 95%;
+                line-height: 32px;
+                color: $_18;
+                padding-left: 15px;
+                @media (max-width: 1024px) {
+                    width: 92%;
+                }
+                @media (max-width: 700px) {
+                    width: 92%;
+                }
+                @media (max-width: 560px) {
+                    width: 94%;
+                }
+                @media (max-width: 400px) {
+                    width: 90%;
+                }
+            }
+        }
+        span {
+            font-size: $_12;
+            margin-bottom: 40px;
+        }
+        button {
+            background-color: $dark;
+            color: $white;
+            font-size: $_18;
+            font-weight: 600;
+            width: 100%;
+            line-height: 35px;
+            text-transform: uppercase;
+        }
+    }
+}

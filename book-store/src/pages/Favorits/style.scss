@@ -1,0 +1,90 @@
+.favorits{
+    button {
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid $light-gray;
+        @media (max-width: 620px) {
+            flex-direction: column;
+            position: relative;
+        }
+    }
+    &__image {
+        background-color: $blue;
+        margin-bottom: 30px;
+        @media (max-width: 620px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 265px;
+            background-color: $blue;
+            margin-bottom: 15px;
+        }
+        img {
+            height: 200px;
+            width: 150px;
+            @media (max-width: 620px) {
+                width: 60%;
+                height: 95%;
+                object-fit: cover;
+            }
+        }
+    }
+    &__info {
+        width: 60%;
+        align-self: flex-start;
+        li {
+            color: $gray;
+            font-size: $_18;
+            line-height: 35px;
+            &:first-child {
+                color: $dark;
+                font-size: $_24;
+                font-weight: 600;
+                line-height: 50px;
+            }
+            &:last-child {
+                color: $dark;
+                font-size: $_24;
+                font-weight: 600;
+                padding-top: 30px;
+            }
+        }
+        @media (max-width: 620px) {
+            width: 100%;
+            padding: 0;
+            li {
+                font-size: 15px;
+                &:first-child {
+                    font-size: $_18;
+                    font-weight: 500;
+                    line-height: 30px;
+                }
+                &:last-child {
+                    font-size: $_18;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    &__button {
+        @media (max-width: 800px) {
+            align-self: flex-start;
+        }
+        @media (max-width: 620px) {
+            position: absolute;
+            top: 0px;
+            right: 0;
+            background-color: $dark;
+            padding-top: 5px;
+        }
+    }
+}
+    

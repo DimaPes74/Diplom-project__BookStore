@@ -1,0 +1,164 @@
+li {
+    list-style: none;
+}
+
+
+.alone-card {
+    &__title {
+
+        h1 {
+            text-transform: uppercase;
+        }
+        button {
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
+    }
+    &__show-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: 760px) {
+            flex-direction: column;
+        }
+        .img__wrap {
+            background-color: $blue;
+            width: 45%;
+            position: relative;
+            align-self: flex-start;
+            margin-top: 20px;
+            @media (max-width: 760px) {
+                width: 100%;
+            }
+            img {
+                display: block;
+                margin: auto;
+                height: 80%;
+                width: 80%;
+            }
+        }
+        .heart-dislike {
+            background-color: $dark;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        ul {
+            width: 45%;
+            border-top: 2px solid $light-gray;
+            padding: 20px 0 0 0;
+            align-self: flex-start;
+            @media (max-width: 760px) {
+                width: 100%;
+            }
+            li {
+                display: flex;
+                justify-content: space-between;
+                &:first-child {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 30px;
+                }
+                .one-price {
+                    font-size: $_28;
+                    font-weight: 600;
+                }
+                .this-book_info {
+                    color: $gray;
+                    font-size: $_18;
+                    line-height: 30px;
+                }
+                .this-book_value {
+                    font-size: $_18;
+                    line-height: 30px;
+                    font-weight: 600;
+                }
+                .select {
+                    font-size: $_18;
+                    font-weight: 500;
+                    padding: 20px 0;
+                    border: none;
+                    margin-bottom: 25px;
+                    option {
+                        font-size: $_18;
+                        line-height: 24px;
+                    }
+                }
+                button {
+                    width: 100%;
+                    line-height: 55px;
+                    color: $white;
+                    background-color: $dark;
+                    text-transform: uppercase;
+                    margin-bottom: 35px;
+                    &:hover {
+                        background-color: $lite_dark;
+                        transform: scale(1.05);
+                    }
+                    &:active {
+                        box-shadow: 5px 5px 5px $lite_dark;
+                    }
+                }
+                .prewiew {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .alone-books_popaps {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin-bottom: 40px;
+        border-bottom: 2px solid $light-gray;
+        li {
+            width: 15%;
+            line-height: 60px;
+            text-align: center;
+            color: $gray;
+            &:hover {
+                color: $dark;
+                border-bottom: 2px solid $dark;
+            }
+        }
+    }
+    @media (max-width: 620px) {
+        .alone-books_popaps {
+            margin-bottom: 25px;
+            li {
+                width: 30%;
+                line-height: 60px;
+                text-align: center;
+                color: $gray;
+                &:hover {
+                    color: $dark;
+                    border-bottom: 2px solid $dark;
+                }
+            }
+        }
+    }
+    p {
+        margin-bottom: 40px;
+    }
+    .alone-card__links {
+        display: flex;
+        flex-direction: row;
+        li {
+            padding: 10px;
+            &:hover {
+                background-color: $light-gray;
+                border-radius: 10px;
+            }
+        }
+    }
+
+}
+

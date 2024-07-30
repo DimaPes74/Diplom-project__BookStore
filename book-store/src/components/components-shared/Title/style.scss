@@ -1,0 +1,20 @@
+.title {
+    h1 {
+        line-height: 100px;
+        font-size: $_40;
+        display: inline;
+        text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+        h1 {
+            line-height: 80px;
+            font-size: $_28;
+        }
+    }
+    @media (max-width: 460px) {
+        h1 {
+            line-height: 60px;
+            font-size: $_24;
+        }
+    }
+}
