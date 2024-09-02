@@ -1,6 +1,7 @@
 {
   "name": "book-store",
   "version": "0.1.0",
+  "homepage": "https://DimaPes74.github.io/Diplom-project__BookStore",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
