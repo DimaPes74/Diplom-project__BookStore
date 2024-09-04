@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Diplom-project__BookStore/static/css/main.9fc7ff27.css",
-    "main.js": "/Diplom-project__BookStore/static/js/main.4aaf96fe.js",
-    "index.html": "/Diplom-project__BookStore/index.html",
-    "main.9fc7ff27.css.map": "/Diplom-project__BookStore/static/css/main.9fc7ff27.css.map",
-    "main.4aaf96fe.js.map": "/Diplom-project__BookStore/static/js/main.4aaf96fe.js.map"
+    "main.css": "/Diplom-project__BookStore/book-store/static/css/main.9fc7ff27.css",
+    "main.js": "/Diplom-project__BookStore/book-store/static/js/main.4aaf96fe.js",
+    "index.html": "/Diplom-project__BookStore/book-store/index.html",
+    "main.9fc7ff27.css.map": "/Diplom-project__BookStore/book-store/static/css/main.9fc7ff27.css.map",
+    "main.4aaf96fe.js.map": "/Diplom-project__BookStore/book-store/static/js/main.4aaf96fe.js.map"
   },
   "entrypoints": [
     "static/css/main.9fc7ff27.css",
